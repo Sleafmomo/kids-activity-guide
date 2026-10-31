@@ -10,7 +10,7 @@ import json
 import os
 import sys
 
-XLSX_SKILL_DIR = "/Users/sleaf/.zcode/cli/plugins/cache/zcode-plugins-official/spreadsheets/0.2.1/skills/xlsx"
+XLSX_SKILL_DIR = os.path.expanduser("~/.zcode/cli/plugins/cache/zcode-plugins-official/spreadsheets/0.2.1/skills/xlsx")
 for sub in [XLSX_SKILL_DIR, os.path.join(XLSX_SKILL_DIR, "templates")]:
     if sub not in sys.path:
         sys.path.insert(0, sub)

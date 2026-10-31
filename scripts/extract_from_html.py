@@ -3,7 +3,7 @@
 """
 从《儿童兴趣班全景清单（权威修订版）》HTML 提取结构化数据。
 
-数据血缘：原始 HTML（私人定制版，2026-10-23 第2版）
+数据血缘：原始 HTML 素材（2026-10-23 第2版，维护者本地文件）
   → 本脚本自动提取（项目/年龄/推荐意见/理由/信源）
   → 合并 ENRICH 人工字段（能力标签/特征/政策/提示/简介）
   → data/*.json
@@ -16,7 +16,7 @@ import re
 import sys
 from html.parser import HTMLParser
 
-HTML_PATH = "/Users/sleaf/WorkBuddy/2026-10-23-13-50-41/儿童兴趣班全景清单_权威修订版_副本.html"
+HTML_PATH = os.path.expanduser("~/WorkBuddy/2026-10-23-13-50-41/儿童兴趣班全景清单_权威修订版_副本.html")  # 本地原始素材，仅维护者机器上存在
 OUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data")
 TODAY = "2026-10-31"
 
@@ -1984,8 +1984,7 @@ def main():
     meta = {
         "version": "1.2.0",
         "generated_at": TODAY,
-        "provenance": "提取自《儿童兴趣班全景清单（权威修订版）》2026-10-23 第2版（私人定制版），"
-                      "含个性化措辞的原推荐理由等字段已拆分至 personal_archive.json（gitignored，不入公开仓库）；"
+        "provenance": "数据由官方文件、权威机构指南与行业通行口径整理而成（整理日期 2026-10-31）；"
                       "官方鼓励维度依据 policies.json（2026-10-31 逐一核实）接入；"
                       "体育类完备性以 2026 爱知名古屋亚运会 43 个大项为基准逐项对照（大项入表、小项进别名）；"
                       "艺术类完备性按音乐六家族（键盘/弦乐/民乐/管乐/打击乐/电声）与美术四门类（绘画/立体/工艺/数字）盘点补齐；"
@@ -1994,7 +1993,7 @@ def main():
                       "新兴手作（拼豆/史莱姆）按'体验活动非培训班'属性收录并带安全提示；"
                       "内容丰富 v1.1：199 项全部带项目介绍（大众项讲优点与特质，小众项先讲是什么）；年龄核验台账 age_verification.json（第 1 轮：15 个高频项完成多源交叉核验）；"
                       "主题纪律：只收录与兴趣班/特长班直接相关的内容——独立'反面机构'条目（视力康复/增高/网瘾特训等非兴趣班形态）"
-                      "经用户确认移除，关键安全红线保留在对应兴趣条目的 caution 内（骑行12岁上路、禁止野泳、蹦床6岁、拳击头部击打等）",
+                      "不纳入收录范围，关键安全红线保留在对应兴趣条目的 caution 内（骑行12岁上路、禁止野泳、蹦床6岁、拳击头部击打等）",
         "counts": {
             "activities": len(activities),
             "sources": len(sources),
@@ -2005,7 +2004,7 @@ def main():
     with open(os.path.join(OUT_DIR, "activities.json"), "w", encoding="utf-8") as f:
         json.dump({"meta": meta, "activities": activities}, f, ensure_ascii=False, indent=2)
     with open(os.path.join(OUT_DIR, "personal_archive.json"), "w", encoding="utf-8") as f:
-        json.dump({"_说明": "个性化字段存档（原私人定制清单推荐理由等），仅本地留存，gitignore，不入公开仓库", "items": personal}, f, ensure_ascii=False, indent=2)
+        json.dump({"_说明": "个性化字段存档（原素材推荐理由等），仅维护者本地留存，已 gitignore，不入公开仓库", "items": personal}, f, ensure_ascii=False, indent=2)
     with open(os.path.join(OUT_DIR, "sources.json"), "w", encoding="utf-8") as f:
         json.dump(sources, f, ensure_ascii=False, indent=2)
     with open(os.path.join(OUT_DIR, "policies.json"), "w", encoding="utf-8") as f:

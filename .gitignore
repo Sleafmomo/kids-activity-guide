@@ -8,3 +8,6 @@ edgeone-deploy.zip
 # 系统与缓存
 __pycache__/
 .DS_Store
+
+# 开发过程记录（含决策过程与迭代史）——仅本地留存
+DEVLOG.md
