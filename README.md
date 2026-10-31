@@ -40,12 +40,13 @@ kids-activity-guide/
 
 - **本地使用**：直接双击打开 `web/index.html` 即可（数据以内嵌脚本形式加载，file:// 下也能工作，离线可用）。
 - **本地预览服务**：`cd web && python3 -m http.server 8765`，访问 http://127.0.0.1:8765 。
-- **上线部署**：把 `web/` 目录整体上传任意静态托管（GitHub Pages、Vercel、云存储静态网站等）即可，无需服务器与备案（自备域名时按平台要求）。
-- **数据更新流程**：改 `scripts/extract_from_html.py` 中的 E 字典（增/删/改条目）→ `python3 scripts/extract_from_html.py` → `python3 scripts/validate.py` → `python3 scripts/export_review_xlsx.py` → `python3 scripts/build_web_data.py`。网页与 Excel 自动更新。
+- **线上站点（GitHub Pages，2026-10-31 上线）**：https://sleafmomo.github.io/kids-activity-guide/ —— 仓库 `Sleafmomo/kids-activity-guide`，`.github/workflows/deploy-pages.yml` 自动把 `web/` 发布到 Pages；`git push` 到 main 即自动更新线上（约 1 分钟）。
+- **历史方案**：EdgeOne Pages 免费预览链接（*.zh-cn.edgeone.cool）对中国大陆加速区域仅 3 小时有效（401 过期机制），已弃用；其自定义域名需 ICP 备案。
+- **数据更新流程**：改 `scripts/extract_from_html.py` 中的 E 字典（增/删/改条目）→ `python3 scripts/extract_from_html.py` → `python3 scripts/validate.py` → `python3 scripts/export_review_xlsx.py` → `python3 scripts/build_web_data.py` → git commit + push（线上自动更新）。
 
 ### 去个性化处理（已完成）
 
-原定制清单的 146 条推荐理由（detail_original 字段）含有针对特定孩子的措辞。处理方式为**物理隔离**：网页数据由 `build_web_data.py` 生成，该脚本剔除全部个性化字段并通过关键词断言自检（"孩子已4岁半""本城""他未表现"等不得出现在网页数据中）；原始文本仅存档于 `data/activities.json` 供追溯，网页端永不展示。
+原定制清单的 146 条推荐理由（detail_original 字段）含有针对特定孩子的措辞。处理方式为**两层物理隔离**：①提取时即把个性化字段（detail_original/source_original/badge_original/verified_at/notes）从 activities.json 拆出，写入 `data/personal_archive.json`（已 gitignore，仅本地留存，公开仓库不含）；②`build_web_data.py` 生成网页数据时再剔除一遍并通过关键词断言自检（"孩子已4岁半""本城""他未表现"等不得出现在网页数据中）。网页端永不展示。
 
 ## 数据模型
 
@@ -149,4 +150,5 @@ kids-activity-guide/
 - [x] 网页设计评审整改（web v1.2.1，用户确认"都改"）：**手机端**——下滑自动收起筛选条件区（仅留年龄+搜索两行常驻，一次可见卡片 1→3 张；收起/展开改变页高会触发浏览器滚动锚定的反向 scroll 事件，用 350ms 冷锁防抖）、年龄 ± 半岁步进按钮、回到顶部按钮；**搜索框从"更多筛选"折叠里提到一级**；**桌面端**——展开详情的卡片横跨两栏（消除邻列大空白）；**可读性**——全站字号上调一档（正文 16px、简介 14.5、详情 14、标签 ≥12，照顾祖辈用户），安全提示从整段红字改为红框警示框（红标深字）；**美观**——"热门"从淡琥珀改为实心金黄（与"有红线"警示色明确区分）、卡片按钮统一去 emoji、表头统计对比度提高；**术语**——"节奏/动态/静态"改为"运动量/大运动量/安静型"；静态资源带 ？v=1.2.1 版本参数防缓存。桌面 1280 + 手机 390 双端截图回归通过
 - [x] 功能精简（web v1.2.2，用户反馈）：移除卡片上的"加入对比""复制链接"按钮及整个对比功能（底部对比条、对比弹窗、localStorage 状态一并清理，避免老访客残留状态弹出无法操作的对比条）；每卡的"XX怎么挑"入口移除，12 篇分类指南集中在页脚一处展示。分享能力不受影响——项目卡标题仍是指向 `#id` 的链接，浏览器地址栏/转发即分享。弹窗（modal）随对比/指南弹窗移除
 - [x] 移除"年龄核验"展示（web v1.2.3，用户反馈"没啥用"）：网页卡片详情不再显示核验状态行（大多数条目显示"排期中"反而制造不完整感）。data/age_verification.json 台账与 Excel"年龄核验"列保留为内部质检存档，供日后维护时回答"为什么建议 X 岁"；**第 2/3 轮全量核验不再排期**——信源分级（official/authority/industry）+ 页脚信源清单已承担对外可信度职责
+- [x] 上线（2026-10-31，GitHub Pages）：仓库 `Sleafmomo/kids-activity-guide`（公开），GitHub Actions 自动发布 web/ 到 https://sleafmomo.github.io/kids-activity-guide/ 。**隐私重构**：个性化字段（原推荐理由等）从 activities.json 拆出至 gitignored 的 personal_archive.json，公开仓库双重校验零个性化内容；网页数据包同步剔除 age_check 内部字段。终审修复：门球 discouraged 缺警示文案（已补"为什么不推荐"）。历史方案 EdgeOne Pages 弃用（免费预览链接 3 小时过期 401，自定义域名需备案）
 - [ ] 数据补深：高频 50 项的官方依据细化与信源补强（如快乐体操的体操中心等级标准、校园篮球等专项文件）
