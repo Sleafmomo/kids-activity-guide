@@ -1,0 +1,12 @@
+{
+  "pages": ["pages/index/index"],
+  "window": {
+    "navigationBarTitleText": "儿童兴趣班选班指南",
+    "navigationBarBackgroundColor": "#0d7377",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f6f8fa",
+    "backgroundTextStyle": "light"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

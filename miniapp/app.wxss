@@ -1,0 +1,9 @@
+/* 全局 */
+page {
+  background: #f6f8fa;
+  color: #1f2933;
+  font-size: 28rpx;
+  line-height: 1.6;
+  font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+.dim { color: #5b6b7a; }

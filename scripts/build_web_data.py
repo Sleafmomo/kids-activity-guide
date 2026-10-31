@@ -62,11 +62,21 @@ def main():
         json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
         f.write(";\n")
 
+    # 微信小程序版数据（同一份，模块导出）
+    MINIAPP = os.path.join(BASE, "miniapp")
+    os.makedirs(MINIAPP, exist_ok=True)
+    out2 = os.path.join(MINIAPP, "data.js")
+    with open(out2, "w", encoding="utf-8") as f:
+        f.write("// 由 scripts/build_web_data.py 自动生成，请勿手改；数据源：data/*.json\n")
+        f.write("module.exports = ")
+        json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
+        f.write(";\n")
+
     # 隐私自检：确认个性化字段未进入网页数据
     blob = json.dumps(clean, ensure_ascii=False)
     for kw in ["孩子已4岁半", "4岁5个月", "他未表现", "本城", "本区", "家庭决策排除", "我家"]:
         assert kw not in blob, f"个性化关键词泄漏到网页数据: {kw}"
-    print(f"OK -> {out}  ({len(clean)} 项, 个性化字段已隔离)")
+    print(f"OK -> {out} + miniapp/data.js  ({len(clean)} 项, 个性化字段已隔离)")
 
 
 if __name__ == "__main__":

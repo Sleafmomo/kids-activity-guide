@@ -1,0 +1,213 @@
+<!-- ========== 筛选区 ========== -->
+<view class="filters">
+  <view class="filter-row age-row">
+    <text class="age-label">孩子年龄</text>
+    <view class="age-step" bindtap="stepAge" data-d="-0.5">−</view>
+    <slider class="age-slider" min="3" max="12" step="0.5" value="{{age}}" activeColor="#0d7377" block-size="20" bindchanging="onAgeChanging" bindchange="onAgeChange" />
+    <view class="age-step" bindtap="stepAge" data-d="0.5">＋</view>
+    <text class="age-value">{{ageText}}</text>
+  </view>
+  <view class="filter-row">
+    <view class="ghost-btn" bindtap="toggleTimeline">📅 未来12个月规划</view>
+  </view>
+  <view class="filter-row search-row">
+    <input class="search" value="{{search}}" placeholder="搜项目名或别名，如：游泳、架子鼓、拼豆…" bindinput="onSearch" confirm-type="search" />
+  </view>
+
+  <view class="filter-row">
+    <text class="filter-label">想培养的能力（可多选，不选=不限）</text>
+  </view>
+  <view class="chips">
+    <view wx:for="{{abilityChips}}" wx:key="id" class="chip {{item.active ? 'active' : ''}}" bindtap="onAbility" data-id="{{item.id}}">{{item.name}}</view>
+  </view>
+
+  <view class="filter-row"><text class="filter-label">资源热度</text></view>
+  <view class="chips">
+    <view wx:for="{{heatChips}}" wx:key="id" class="chip {{item.active ? 'active' : ''}}" bindtap="onHeat" data-id="{{item.id}}">{{item.name}}</view>
+  </view>
+
+  <view class="more-toggle" bindtap="toggleMore">{{moreOpen ? '▼ 更多筛选条件' : '▶ 更多筛选条件'}}</view>
+  <view wx:if="{{moreOpen}}">
+    <view class="filter-row"><text class="filter-label">分类</text></view>
+    <view class="chips">
+      <view wx:for="{{categoryChips}}" wx:key="id" class="chip {{item.active ? 'active' : ''}}" bindtap="onCategory" data-id="{{item.id}}">{{item.name}}</view>
+    </view>
+    <view class="filter-row"><text class="filter-label">政策状态</text></view>
+    <view class="chips">
+      <view wx:for="{{policyChips}}" wx:key="id" class="chip {{item.active ? 'active' : ''}}" bindtap="onPolicy" data-id="{{item.id}}">{{item.name}}</view>
+    </view>
+    <view class="filter-row selects">
+      <picker range="{{selIndoor.names}}" value="{{selIndoor.index}}" bindchange="onPick" data-key="selIndoor">
+        <text class="pick-label">环境 <text class="pick-value">{{selIndoor.names[selIndoor.index]}}</text> ▾</text>
+      </picker>
+      <picker range="{{selGroup.names}}" value="{{selGroup.index}}" bindchange="onPick" data-key="selGroup">
+        <text class="pick-label">形式 <text class="pick-value">{{selGroup.names[selGroup.index]}}</text> ▾</text>
+      </picker>
+      <picker range="{{selTempo.names}}" value="{{selTempo.index}}" bindchange="onPick" data-key="selTempo">
+        <text class="pick-label">运动量 <text class="pick-value">{{selTempo.names[selTempo.index]}}</text> ▾</text>
+      </picker>
+      <picker range="{{selCost.names}}" value="{{selCost.index}}" bindchange="onPick" data-key="selCost">
+        <text class="pick-label">成本 <text class="pick-value">{{selCost.names[selCost.index]}}</text> ▾</text>
+      </picker>
+      <view class="pick-label check {{familyOnly ? 'on' : ''}}" bindtap="onFamily">{{familyOnly ? '☑' : '☐'}} 在家即可开展</view>
+      <view class="reset" bindtap="onReset">重置筛选</view>
+    </view>
+  </view>
+</view>
+
+<!-- ========== 时间轴 ========== -->
+<view class="timeline-section" id="timeline" wx:if="{{showTimeline}}">
+  <view class="group-title plan">📅 未来 12 个月规划 <text class="tl-age">{{timelineAge}}</text></view>
+  <view class="tl-row" wx:for="{{timelineRows}}" wx:key="label">
+    <view class="tl-label"><view class="tl-dot {{item.dot}}"></view>{{item.label}}</view>
+    <view class="tl-chips" wx:if="{{item.chips.length}}">
+      <view wx:for="{{item.chips}}" wx:for-item="c" wx:key="id" class="tl-chip {{c.isHot ? 'hot' : ''}} {{c.isRare ? 'rare' : ''}}" bindtap="onTimelineChip" data-id="{{c.id}}">{{c.name}}<text class="tl-heat">{{c.heatText}}</text></view>
+    </view>
+    <view wx:if="{{item.text}}" class="tl-empty">{{item.text}}</view>
+  </view>
+</view>
+
+<!-- ========== 结果 ========== -->
+<view class="main">
+  <view class="result-count">{{resultCount}}</view>
+
+  <view class="group">
+    <view class="group-title ok">✓ 现在适龄 · {{eligible.length}} 个</view>
+    <view class="cards">
+      <view class="card {{item.expanded ? 'expanded' : ''}}" wx:for="{{eligible}}" wx:key="id" id="item-{{item.id}}">
+        <view class="card-top">
+          <text class="card-name">{{item.name}}</text>
+          <text class="cat-tag">{{item.catName}}</text>
+          <text wx:if="{{item.heatText}}" class="heat-tag {{item.heatCls}}">{{item.heatText}}</text>
+          <text wx:if="{{item.badge}}" class="badge {{item.badgeCls}}">{{item.badge}}</text>
+        </view>
+        <view class="card-age">{{item.agePre}}<text class="age-b">{{item.ageMain}}</text>{{item.ageSuf}}</view>
+        <view class="ab-tags">
+          <text wx:for="{{item.abs}}" wx:for-item="ab" wx:key="name" class="ab-tag {{ab.main ? 'main' : ''}}">{{ab.name}}</text>
+        </view>
+        <view class="card-summary">{{item.summary}}</view>
+        <view class="card-actions">
+          <view class="card-toggle" bindtap="toggleDetail" data-id="{{item.id}}">{{item.expanded ? '收起 ▴' : '详情 ▾'}}</view>
+        </view>
+        <view class="card-detail" wx:if="{{item.expanded}}">
+          <view class="row" wx:if="{{item.detail}}"><text class="k">介绍</text><text class="v">{{item.detail}}</text></view>
+          <view class="row warnline" wx:if="{{item.caution}}"><text class="k">安全提示</text><text class="v">{{item.caution}}</text></view>
+          <block wx:for="{{item.officialRows}}" wx:for-item="o" wx:key="title">
+            <view class="row"><text class="k">✓ 官方鼓励依据</text><text class="v">{{o.title}}</text></view>
+            <view class="row quote-row" wx:if="{{o.quote}}"><view class="quote">“{{o.quote}}”<text class="quote-src">{{o.quoteSrc}}</text></view></view>
+          </block>
+          <view class="row" wx:if="{{item.note}}"><text class="k">补充</text><text class="v">{{item.note}}</text></view>
+          <view class="row"><text class="k">形式</text><text class="v dim">{{item.traitsLine}}</text></view>
+          <view class="row src-row"><text class="tier {{item.tierCls}}">{{item.tierText}}</text><text class="v dim src-text">{{item.srcText}}</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="group">
+    <view class="group-title soon">○ 还没到年龄 · {{upcoming.length}} 个</view>
+    <view class="group-hint">提前规划用——很多热门项目要排队，适龄前半年了解正合适。</view>
+    <view class="cards">
+      <view class="card upcoming" wx:for="{{upcoming}}" wx:key="id" id="item-{{item.id}}">
+        <view class="card-top">
+          <text class="card-name">{{item.name}}</text>
+          <text class="cat-tag">{{item.catName}}</text>
+          <text wx:if="{{item.heatText}}" class="heat-tag {{item.heatCls}}">{{item.heatText}}</text>
+          <text wx:if="{{item.badge}}" class="badge {{item.badgeCls}}">{{item.badge}}</text>
+        </view>
+        <view class="card-age">{{item.agePre}}<text class="age-b">{{item.ageMain}}</text>{{item.ageSuf}}</view>
+        <view class="ab-tags">
+          <text wx:for="{{item.abs}}" wx:for-item="ab" wx:key="name" class="ab-tag {{ab.main ? 'main' : ''}}">{{ab.name}}</text>
+        </view>
+        <view class="card-summary">{{item.summary}}</view>
+        <view class="card-actions">
+          <view class="card-toggle" bindtap="toggleDetail" data-id="{{item.id}}">{{item.expanded ? '收起 ▴' : '详情 ▾'}}</view>
+        </view>
+        <view class="card-detail" wx:if="{{item.expanded}}">
+          <view class="row" wx:if="{{item.detail}}"><text class="k">介绍</text><text class="v">{{item.detail}}</text></view>
+          <view class="row warnline" wx:if="{{item.caution}}"><text class="k">安全提示</text><text class="v">{{item.caution}}</text></view>
+          <block wx:for="{{item.officialRows}}" wx:for-item="o" wx:key="title">
+            <view class="row"><text class="k">✓ 官方鼓励依据</text><text class="v">{{o.title}}</text></view>
+            <view class="row quote-row" wx:if="{{o.quote}}"><view class="quote">“{{o.quote}}”<text class="quote-src">{{o.quoteSrc}}</text></view></view>
+          </block>
+          <view class="row" wx:if="{{item.note}}"><text class="k">补充</text><text class="v">{{item.note}}</text></view>
+          <view class="row"><text class="k">形式</text><text class="v dim">{{item.traitsLine}}</text></view>
+          <view class="row src-row"><text class="tier {{item.tierCls}}">{{item.tierText}}</text><text class="v dim src-text">{{item.srcText}}</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="group">
+    <view class="group-title dim" bindtap="togglePassed">– 窗口已过 · {{passed.length}} 个 {{passedOpen ? '▴' : '▾'}}</view>
+    <view class="cards" wx:if="{{passedOpen}}">
+      <view class="card passed-card" wx:for="{{passed}}" wx:key="id" id="item-{{item.id}}">
+        <view class="card-top">
+          <text class="card-name">{{item.name}}</text>
+          <text class="cat-tag">{{item.catName}}</text>
+          <text wx:if="{{item.badge}}" class="badge {{item.badgeCls}}">{{item.badge}}</text>
+        </view>
+        <view class="card-age">{{item.agePre}}<text class="age-b">{{item.ageMain}}</text>{{item.ageSuf}}</view>
+        <view class="card-summary">{{item.summary}}</view>
+        <view class="card-actions">
+          <view class="card-toggle" bindtap="toggleDetail" data-id="{{item.id}}">{{item.expanded ? '收起 ▴' : '详情 ▾'}}</view>
+        </view>
+        <view class="card-detail" wx:if="{{item.expanded}}">
+          <view class="row warnline" wx:if="{{item.caution}}"><text class="k">安全提示</text><text class="v">{{item.caution}}</text></view>
+          <view class="row"><text class="k">形式</text><text class="v dim">{{item.traitsLine}}</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="group">
+    <view class="group-title neg">✗ 不建议 · {{neg.length}} 个（无论几岁）</view>
+    <view class="group-hint neg-hint">这些项目无论孩子几岁都不建议参与——别被营销话术带跑。红色徽章条目有官方文件或权威口径背书。</view>
+    <view class="cards">
+      <view class="card neg-card" wx:for="{{neg}}" wx:key="id" id="item-{{item.id}}">
+        <view class="card-top">
+          <text class="card-name">{{item.name}}</text>
+          <text class="cat-tag">{{item.catName}}</text>
+          <text wx:if="{{item.badge}}" class="badge {{item.badgeCls}}">{{item.badge}}</text>
+        </view>
+        <view class="card-age" wx:if="{{item.ageMain !== '—'}}">{{item.agePre}}<text class="age-b">{{item.ageMain}}</text>{{item.ageSuf}}</view>
+        <view class="card-summary">{{item.summary}}</view>
+        <view class="card-actions">
+          <view class="card-toggle" bindtap="toggleDetail" data-id="{{item.id}}">{{item.expanded ? '收起 ▴' : '详情 ▾'}}</view>
+        </view>
+        <view class="card-detail" wx:if="{{item.expanded}}">
+          <view class="row warnline" wx:if="{{item.caution}}"><text class="k">安全提示</text><text class="v">{{item.caution}}</text></view>
+          <view class="row src-row"><text class="tier {{item.tierCls}}">{{item.tierText}}</text><text class="v dim src-text">{{item.srcText}}</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{resultCount.indexOf('符合条件 0 个') >= 0}}">
+    <view>没有符合条件的项目。</view>
+    <view class="dim">试试放宽筛选：清空能力标签、把成本调成"不限"，或换一个年龄。</view>
+  </view>
+</view>
+
+<!-- ========== 页脚 ========== -->
+<view class="footer">
+  <view class="disclaimer">{{disclaimer}}</view>
+  <view class="footer-toggle" bindtap="toggleGuides">{{showGuides ? '▼' : '▶'}} 分类"怎么挑"指南（{{guides.length}} 篇）</view>
+  <view wx:if="{{showGuides}}">
+    <view class="guide" wx:for="{{guides}}" wx:key="title">
+      <view class="guide-title">{{item.title}}</view>
+      <view class="guide-intro">{{item.intro}}</view>
+      <view class="guide-h">怎么选：</view>
+      <view class="guide-li" wx:for="{{item.points}}" wx:for-item="pt" wx:key="*this">· {{pt}}</view>
+      <view class="guide-h">红线：</view>
+      <view class="guide-red">⚠ {{item.redline}}</view>
+      <view class="guide-h">花费参考：</view>
+      <view class="dim">{{item.budget}}（各地差异大，仅作量级参考）</view>
+      <view class="guide-hr"></view>
+    </view>
+  </view>
+  <view class="version dim">{{version}}</view>
+</view>
+
+<!-- 回到顶部悬浮按钮 -->
+<view class="back-top" wx:if="{{showTop}}" bindtap="onTopTap">↑ 顶部</view>

@@ -1,0 +1,13 @@
+{
+  "description": "儿童兴趣班选班指南（导入后请把 appid 换成你的小程序 AppID；touristappid 为游客模式）",
+  "appid": "touristappid",
+  "projectname": "kids-activity-guide",
+  "libVersion": "3.0.0",
+  "setting": {
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "urlCheck": false
+  },
+  "compileType": "miniprogram"
+}
