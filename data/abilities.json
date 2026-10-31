@@ -1,0 +1,56 @@
+[
+  {
+    "id": "physical",
+    "name": "体能协调",
+    "guide_domain": "健康",
+    "desc": "力量、耐力、平衡、柔韧、手眼协调等身体素质"
+  },
+  {
+    "id": "resilience",
+    "name": "勇气抗挫",
+    "guide_domain": "健康·社会",
+    "desc": "胆量、坚持、面对失败与困难的韧性"
+  },
+  {
+    "id": "focus",
+    "name": "专注力",
+    "guide_domain": "健康·科学",
+    "desc": "注意力集中与持续、静定能力"
+  },
+  {
+    "id": "logic",
+    "name": "逻辑思维",
+    "guide_domain": "科学",
+    "desc": "计算、推理、策略、观察分类等理性思维"
+  },
+  {
+    "id": "creativity",
+    "name": "创造力",
+    "guide_domain": "艺术·科学",
+    "desc": "想象力和创造性表达"
+  },
+  {
+    "id": "aesthetic",
+    "name": "艺术审美",
+    "guide_domain": "艺术",
+    "desc": "美的感受力与艺术表现力"
+  },
+  {
+    "id": "expression",
+    "name": "语言表达",
+    "guide_domain": "语言",
+    "desc": "口语表达、朗读、当众表现"
+  },
+  {
+    "id": "social",
+    "name": "社交协作",
+    "guide_domain": "社会",
+    "desc": "团队合作、规则意识、人际互动"
+  },
+  {
+    "id": "hands_on",
+    "name": "动手实践",
+    "guide_domain": "科学",
+    "desc": "手部精细动作、操作与制作能力"
+  }
+]

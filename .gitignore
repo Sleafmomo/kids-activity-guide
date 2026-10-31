@@ -1,0 +1,10 @@
+# 个性化字段存档——仅本地留存，绝不入公开仓库
+data/personal_archive.json
+
+# 本地生成的审核文件
+兴趣班数据审核表.xlsx
+edgeone-deploy.zip
+
+# 系统与缓存
+__pycache__/
+.DS_Store

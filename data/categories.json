@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ball",
+    "name": "球类运动",
+    "slug": "球类"
+  },
+  {
+    "id": "water",
+    "name": "水上运动",
+    "slug": "水上"
+  },
+  {
+    "id": "ice",
+    "name": "冰上/雪上",
+    "slug": "冰雪"
+  },
+  {
+    "id": "fitness",
+    "name": "体能/极限/新兴",
+    "slug": "体能"
+  },
+  {
+    "id": "combat",
+    "name": "搏击/对抗/射术",
+    "slug": "搏击"
+  },
+  {
+    "id": "mind",
+    "name": "智力/思维/科技",
+    "slug": "智力"
+  },
+  {
+    "id": "music",
+    "name": "音乐",
+    "slug": "音乐"
+  },
+  {
+    "id": "dance",
+    "name": "舞蹈",
+    "slug": "舞蹈"
+  },
+  {
+    "id": "drama",
+    "name": "戏剧/表演/语言",
+    "slug": "戏剧"
+  },
+  {
+    "id": "art",
+    "name": "美术/手工",
+    "slug": "美术"
+  },
+  {
+    "id": "nature",
+    "name": "自然/营地/户外",
+    "slug": "自然"
+  },
+  {
+    "id": "life",
+    "name": "生活技能/其他",
+    "slug": "生活"
+  }
+]

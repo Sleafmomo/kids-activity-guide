@@ -1,0 +1,212 @@
+[
+  {
+    "id": "r1",
+    "tier": "official",
+    "title": "教育部《3-6岁儿童学习与发展指南》",
+    "excerpt": "教育部官方文件（moe.gov.cn 原文页）：幼儿每天户外活动≥2小时、体育活动≥1小时；学习方式'直接感知、亲身体验、实际操作'；科学领域'经常带幼儿接触大自然'。",
+    "url": "http://www.moe.gov.cn/srcsite/A06/s3325/201210/t20121016_143254.html"
+  },
+  {
+    "id": "r2",
+    "tier": "authority",
+    "title": "AAP政策声明《Trampoline Safety in Childhood and Adolescence》",
+    "excerpt": "（Pediatrics, 2012）：5岁及以下儿童骨折/脱位风险升高，建议劝阻娱乐性蹦床使用。https://publications.aap.org/pediatrics/article-abstract/130/4/774/30158/",
+    "url": "https://publications.aap.org/pediatrics/article-abstract/130/4/774/30158/"
+  },
+  {
+    "id": "r3",
+    "tier": "authority",
+    "title": "AAP官网家长科普《Are Trampolines Safe for Kids?》",
+    "excerpt": "：\"kids under 6 should NEVER jump\"；蹦床馆\"wait until they're at least 6 years old\"。https://www.healthychildren.org/english/safety-prevention/at-play/pages/trampolines-what-you-need-to-know.aspx",
+    "url": "https://www.healthychildren.org/english/safety-prevention/at-play/pages/trampolines-what-you-need-to-know.aspx"
+  },
+  {
+    "id": "r4",
+    "tier": "official",
+    "title": "中办、国办《关于进一步减轻义务教育阶段学生作业负担和校外培训负担的意见》",
+    "excerpt": "（2021年7月，中国政府网）：\"严禁以学前班、幼小衔接班、思维训练班等名义面向学龄前儿童开展线下学科类（含外语）培训\"\"不得开展面向学龄前儿童的线上培训\"。https://www.gov.cn/xinwen/2021-07/24/content_5627132.htm",
+    "url": "https://www.gov.cn/xinwen/2021-07/24/content_5627132.htm"
+  },
+  {
+    "id": "r5",
+    "tier": "official",
+    "title": "教育部官网《对政协十三届全国委员会第四次会议第4178号提案答复的函》",
+    "excerpt": "（教监管提案〔2021〕307号）：确认双减学龄前条款、幼儿园\"小学化\"专项治理、户外≥2小时、幼儿连续用电子产品≤15分钟。https://www.moe.gov.cn/jyb_xxgk/xxgk_jyta/jianguansi/202204/t20220429_623353.html",
+    "url": "https://www.moe.gov.cn/jyb_xxgk/xxgk_jyta/jianguansi/202204/t20220429_623353.html"
+  },
+  {
+    "id": "r6",
+    "tier": "authority",
+    "title": "AAP官网《Swim Lessons for Children》",
+    "excerpt": "：1岁起可作为防溺水保护层；\"By their 4th birthday…most children are ready for swim lessons\"；1岁内不建议正式游泳课。https://www.healthychildren.org/English/safety-prevention/at-play/Pages/Swim-Lessons.aspx",
+    "url": "https://www.healthychildren.org/English/safety-prevention/at-play/Pages/Swim-Lessons.aspx"
+  },
+  {
+    "id": "r7",
+    "tier": "authority",
+    "title": "AAP临床报告《The Power of Play》",
+    "excerpt": "（Pediatrics, 2018，2025年1月重申）：玩耍塑造大脑结构与功能，儿科医生应开\"玩耍处方\"，保护非结构化自由玩耍。https://pediatrics.aappublications.org/content/142/3/e20182058",
+    "url": "https://pediatrics.aappublications.org/content/142/3/e20182058"
+  },
+  {
+    "id": "r8",
+    "tier": "authority",
+    "title": "AAP临床报告《Sports Specialization and Intensive Training in Young Athletes》",
+    "excerpt": "（2016）及官网《Burnout in Young Athletes》：青春期前多项目参与、反对早期专项化；组织性运动约6岁开始；\"每周训练小时数≤年龄\"；约70%孩子13岁前因倦怠弃运动。https://www.healthychildren.org/English/health-issues/injuries-emergencies/sports-injuries/Pages/Too-Much-Too-Soon-Overtraining.aspx",
+    "url": "https://www.healthychildren.org/English/health-issues/injuries-emergencies/sports-injuries/Pages/Too-Much-Too-Soon-Overtraining.aspx"
+  },
+  {
+    "id": "r9",
+    "tier": "authority",
+    "title": "《学龄前儿童（3-6岁）运动指南（专家共识版）》",
+    "excerpt": "（2018，北体大+首都儿科研究所+体育总局体科所）：全天活动≥180分钟、中高强度≥60分钟、户外≥120分钟、屏幕≤60分钟且越少越好、久坐单次≤60分钟、\"以愉快的游戏为主要形式\"\"避免长时间大强度专业化训练\"。https://health.people.com.cn/n1/2018/0613/c14739-30054199.html",
+    "url": "https://health.people.com.cn/n1/2018/0613/c14739-30054199.html"
+  },
+  {
+    "id": "r10",
+    "tier": "authority",
+    "title": "WHO《5岁以下儿童身体活动、久坐行为和睡眠指南》",
+    "excerpt": "（2019）：3-4岁每天≥180分钟身体活动（含≥60分钟中高强度）、屏幕≤1小时、睡眠10-13小时。https://apps.who.int/iris/bitstream/handle/10665/325147/WHO-NMH-PND-2019.4-eng.pdf",
+    "url": "https://apps.who.int/iris/bitstream/handle/10665/325147/WHO-NMH-PND-2019.4-eng.pdf"
+  },
+  {
+    "id": "r11",
+    "tier": "authority",
+    "title": "罗恩菲德《创造性与心智成长》儿童绘画六阶段（学术著作）",
+    "excerpt": "学术理论：涂鸦期2-4岁→前图式期4-7岁→图式期7-9岁→写实萌芽期9-11岁——写实/素描训练对应9岁后。理论载体见光明日报 2023-07-21《学美术一定要从学素描开始吗》（r31）。",
+    "url": "https://epaper.gmw.cn/gmrb/html/2023-07/21/nw.D110000gmrb_20230721_2-07.htm"
+  },
+  {
+    "id": "r13",
+    "tier": "authority",
+    "title": "人民网健康频道《兴趣班过早上孩子易受伤》",
+    "excerpt": "（引中山大学附属第一医院儿科副主任医师）：轮滑4-5岁开始、4岁以下X型腿风险、硬壳鞋+全套护具、滑5-10分钟休息。https://health.people.com.cn/n1/2018/0731/c14739-30179936.html",
+    "url": "https://health.people.com.cn/n1/2018/0731/c14739-30179936.html"
+  },
+  {
+    "id": "r14",
+    "tier": "official",
+    "title": "国标《体育场所开放条件与技术要求 第23部分：蹦床场所》（GB 19079.23）",
+    "excerpt": "：未满12岁家长全程陪同、空翻最小8周岁、单次≤2小时、须投保意外险、每300㎡至少1名安全监督员。https://std.samr.gov.cn",
+    "url": "https://std.samr.gov.cn"
+  },
+  {
+    "id": "r15",
+    "tier": "authority",
+    "title": "《中国消费者报》《好玩刺激的蹦床护栏在哪里》",
+    "excerpt": "（2020）+国家体育总局体操运动管理中心《开展大众蹦床运动的基本标准与要求（试行）》（2019）：小儿腰腹下肢力量差更易受伤。https://zxb.ccn.com.cn/html/zxb/20200623/104755.html",
+    "url": "https://zxb.ccn.com.cn/html/zxb/20200623/104755.html"
+  },
+  {
+    "id": "r16",
+    "tier": "official",
+    "title": "强制国标《体育场所开放条件与技术要求 第2部分：卡丁车场所》（GB 19079.2-2026）",
+    "excerpt": "强制性国家标准，2026-02-27 发布、2026-09-01 实施（替代 GB 19079.2-2005 等三项旧标准）：要求配套缓冲带/防撞墙/防护网等安全设施，驾驶人员佩戴全盔（带护目镜）、防护服覆盖躯干/脖颈/四肢，14 周岁及以下使用带护胸板护肋装置的卡丁车。业内通行的独立驾驶底线约 6-7 岁/身高 1.2 米为行业口径，非国标条文。",
+    "url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=9462BEA917E1F04BB6F1A9E76C64A7E5"
+  },
+  {
+    "id": "r17",
+    "tier": "official",
+    "title": "国家卫健委\"共促儿童健康\"新闻发布会",
+    "excerpt": "（体育总局官网转载，2025）：每天日间户外活动2小时以上是预防近视最有效最经济的方法。https://www.sport.gov.cn/n20001280/n20001265/n20066978/c28815756/content.html",
+    "url": "https://www.sport.gov.cn/n20001280/n20001265/n20066978/c28815756/content.html"
+  },
+  {
+    "id": "r18",
+    "tier": "industry",
+    "title": "器乐启蒙年龄：行业通例（多来源交叉的通行口径，非官方文件）",
+    "excerpt": "钢琴约 5 岁（手指力量与坐姿专注具备后）、小提琴 5-6 岁（铃木体系惯例可 3-4 岁，须家长全程陪练）、管乐等换牙后 7-9 岁起——为多家音乐学院附中/培训机构与育儿科普反复出现的通行口径，经多来源交叉一致；未见教育部/卫健委层面官方年龄文件，故如实标注为行业口径。",
+    "url": ""
+  },
+  {
+    "id": "r19",
+    "tier": "authority",
+    "title": "AAP与加拿大儿科协会联合政策声明《Boxing Participation by Children and Adolescents》",
+    "excerpt": "（Pediatrics, 2011；2025年3月退役但方向仍是主流共识）：因拳击\"鼓励并奖励对头面部的故意击打\"，明确反对儿童青少年参与。https://www.pubmed.ncbi.nlm.nih.gov/21873697/",
+    "url": "https://www.pubmed.ncbi.nlm.nih.gov/21873697/"
+  },
+  {
+    "id": "r20",
+    "tier": "authority",
+    "title": "央广网健康《有些兴趣班过早学易受伤》",
+    "excerpt": "：舞蹈专业训练建议7岁后，下腰/劈叉/倒立不适合6岁前。https://www.cnr.cn/hnfw/hngbjk/20180719/t20180719_524305492.shtml",
+    "url": "https://www.cnr.cn/hnfw/hngbjk/20180719/t20180719_524305492.shtml"
+  },
+  {
+    "id": "r21",
+    "tier": "official",
+    "title": "教育部《3-6岁儿童学习与发展指南》家长宣传册",
+    "excerpt": "（教育部官网PDF）：\"经常带孩子接触大自然\"\"鼓励和支持孩子探索大自然是促进孩子主动学习的有效途径\"。http://www.moe.gov.cn/jyb_xwfb/xw_zt/moe_357/jyzt_2015nztzl/xueqianjiaoyu/yaowen/202104/W020210820528940480406.pdf",
+    "url": "http://www.moe.gov.cn/jyb_xwfb/xw_zt/moe_357/jyzt_2015nztzl/xueqianjiaoyu/yaowen/202104/W020210820528940480406.pdf"
+  },
+  {
+    "id": "r22",
+    "tier": "authority",
+    "title": "央视网转载《幼儿园不宜开展珠心算教育》",
+    "excerpt": "（学前教育专家论证）：\"学过珠心算的儿童在小学数学计算时总是先想到算盘再算题……容易混淆……对幼儿发展的影响弊大于利\"。https://shaoer.cntv.cn/2014/11/25/ARTI1416883525758147.shtml",
+    "url": "https://shaoer.cntv.cn/2014/11/25/ARTI1416883525758147.shtml"
+  },
+  {
+    "id": "r23",
+    "tier": "authority",
+    "title": "央广网·中国之声《教育部将研究珠算文化进小学 业界争论仍未休止》（2020-09）",
+    "excerpt": "国家级广播电台：中科院脑科学博士陆宇斐在中国之声《新闻有观点》专访中表示，珠心算是模式化、机械化的技巧训练，压缩甚至直接忽略思考过程；因运算规则不同，儿童过早接触会对其理解十进制产生冲突，影响抽象思维的形成和后期数学学习。",
+    "url": "http://china.cnr.cn/xwygd/20200909/t20200909_525248223_1.shtml"
+  },
+  {
+    "id": "r24",
+    "tier": "official",
+    "title": "教育部官网《为学生提供更高质量教育》",
+    "excerpt": "（2021）：点名\"全脑开发\"\"右脑开发\"\"量子速读\"为\"贩卖概念……似是而非的'教育理论'\"。https://www.moe.gov.cn/jyb_xwfb/s5148/202105/t20210527_533797.html",
+    "url": "https://www.moe.gov.cn/jyb_xwfb/s5148/202105/t20210527_533797.html"
+  },
+  {
+    "id": "r25",
+    "tier": "official",
+    "title": "国务院教育督导委员会办公室通报",
+    "excerpt": "（2020年1月）：查处\"量子波动速读\"\"全脑培训\"等违规培训机构（关停取缔）。https://m.cqn.com.cn/ms/content/2020-01/21/content_8068958.htm",
+    "url": "https://m.cqn.com.cn/ms/content/2020-01/21/content_8068958.htm"
+  },
+  {
+    "id": "r26",
+    "tier": "authority",
+    "title": "科普中国（中国科协）发布《“全脑开发”“量子速读”是伪科学骗局》，中国网/中国新闻网转载（2026-05）",
+    "excerpt": "国家级科普平台定性：打着“全脑开发”“量子速读”旗号的培训班为伪科学骗局，并给出官方查证渠道；中国网、中国新闻网等转载。",
+    "url": "https://www.chinanews.com.cn/m/sh/2026/05-07/10616714.shtml"
+  },
+  {
+    "id": "r27",
+    "tier": "authority",
+    "title": "人民日报客户端《当有人跟你说孩子感统失调，你应该知道这些真相》",
+    "excerpt": "：\"给发育正常的孩子进行感统训练往往没有效果\"；引AAP教科书\"支持感统治疗效果的证据较为有限\"。https://www.peopleapp.com/rmharticle/30028593435",
+    "url": "https://www.peopleapp.com/rmharticle/30028593435"
+  },
+  {
+    "id": "r28",
+    "tier": "authority",
+    "title": "央广网《儿童感统失调 小问题？大毛病？》",
+    "excerpt": "（引儿童医院医生）：\"感统失调不是病\"，真有问题先到医院全面诊断排查根源。https://www.cnr.cn/2014jkpd/jkgdxw/20210202/t20210202_525405304.shtml",
+    "url": "https://www.cnr.cn/2014jkpd/jkgdxw/20210202/t20210202_525405304.shtml"
+  },
+  {
+    "id": "r29",
+    "tier": "official",
+    "title": "《国家学生体质健康标准（2014年修订）》",
+    "excerpt": "：1分钟跳绳为小学一至六年级必测指标，一、二年级权重20%；小学唯一加分指标（最多加20分）。http://www.csh.moe.edu.cn/wtzx/bz/20141226/2c909e854a84301a014a8440b4d2000f.html",
+    "url": "http://www.csh.moe.edu.cn/wtzx/bz/20141226/2c909e854a84301a014a8440b4d2000f.html"
+  },
+  {
+    "id": "r30",
+    "tier": "authority",
+    "title": "人民日报《跳绳培训班火爆背后》",
+    "excerpt": "：确认跳绳必考+加分规则；专家意见\"为应付考试报班没有实质性意义，学校会教、在家练即可\"。https://wap.peopleapp.com/article/4760909/4646707",
+    "url": "https://wap.peopleapp.com/article/4760909/4646707"
+  },
+  {
+    "id": "r31",
+    "tier": "authority",
+    "title": "光明日报《学美术一定要从学素描开始吗》（2023-07-21）",
+    "excerpt": "严肃媒体（中共中央机关报）：少儿过早学习素描不但没有好处反而有害，素描的基本要素需要心智达到一定程度的成长方能理解。",
+    "url": "https://epaper.gmw.cn/gmrb/html/2023-07/21/nw.D110000gmrb_20230721_2-07.htm"
+  }
+]

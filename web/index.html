@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>儿童兴趣班选班指南 · 3-12岁</title>
+<link rel="stylesheet" href="style.css?v=1.2.1">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <h1>儿童兴趣班选班指南</h1>
+    <p class="sub">输入孩子年龄和期望培养的能力，直接筛出适龄项目——纯筛选，不搞黑盒推荐</p>
+    <p class="stats" id="stats"></p>
+  </div>
+</header>
+
+<section class="filters" id="filters">
+  <div class="wrap">
+    <div class="filter-row age-row">
+      <label class="age-label">孩子年龄</label>
+      <button class="age-step" id="ageMinus" aria-label="减小半岁">−</button>
+      <input type="range" id="age" min="3" max="12" step="0.5" value="5">
+      <button class="age-step" id="agePlus" aria-label="增大半岁">＋</button>
+      <span class="age-value" id="ageValue">5岁</span>
+      <button class="ghost-btn" id="timelineBtn">📅 未来12个月规划</button>
+    </div>
+    <div class="filter-row search-row">
+      <input type="search" id="search" placeholder="搜项目名或别名，如：游泳、架子鼓、拼豆…">
+    </div>
+    <div class="filter-body" id="filterBody">
+      <div class="filter-row">
+        <span class="filter-label">想培养的能力（可多选，不选=不限）</span>
+        <div class="chips" id="abilityChips"></div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">资源热度</span>
+        <div class="chips" id="heatChips"></div>
+      </div>
+      <details class="more-filters">
+        <summary>更多筛选条件</summary>
+        <div class="filter-row">
+          <span class="filter-label">分类</span>
+          <div class="chips" id="categoryChips"></div>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label">政策状态</span>
+          <div class="chips" id="policyChips"></div>
+        </div>
+        <div class="filter-row selects">
+          <label>环境
+            <select id="indoor">
+              <option value="any">不限</option>
+              <option value="indoor">室内</option>
+              <option value="outdoor">户外</option>
+            </select>
+          </label>
+          <label>形式
+            <select id="group">
+              <option value="any">不限</option>
+              <option value="team">团队</option>
+              <option value="solo">个人</option>
+            </select>
+          </label>
+          <label>运动量
+            <select id="tempo">
+              <option value="any">不限</option>
+              <option value="active">大运动量</option>
+              <option value="calm">安静型</option>
+            </select>
+          </label>
+          <label>成本
+            <select id="cost">
+              <option value="any">不限</option>
+              <option value="low">低</option>
+              <option value="mid">中</option>
+              <option value="high">高</option>
+            </select>
+          </label>
+          <label class="check">
+            <input type="checkbox" id="familyOnly"> 在家即可开展
+          </label>
+          <button class="reset" id="reset">重置筛选</button>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="timeline" class="timeline-section" hidden>
+  <div class="wrap">
+    <h2 class="group-title plan">📅 未来 12 个月规划<span class="tl-age" id="tlAge"></span></h2>
+    <div id="timelineBody"></div>
+  </div>
+</section>
+
+<main class="wrap">
+  <p class="result-count" id="resultCount"></p>
+  <section id="eligibleGroup">
+    <h2 class="group-title ok" id="eligibleTitle"></h2>
+    <div class="cards" id="eligibleCards"></div>
+  </section>
+  <section id="upcomingGroup">
+    <h2 class="group-title soon" id="upcomingTitle"></h2>
+    <p class="group-hint">提前规划用——很多热门项目要排队，适龄前半年了解正合适。</p>
+    <div class="cards" id="upcomingCards"></div>
+  </section>
+  <details id="passedGroup" class="passed">
+    <summary><h2 class="group-title dim" id="passedTitle"></h2></summary>
+    <div class="cards" id="passedCards"></div>
+  </details>
+  <section id="negGroup">
+    <h2 class="group-title neg" id="negTitle"></h2>
+    <p class="group-hint neg-hint">这些项目无论孩子几岁都不建议参与——别被营销话术带跑。红色徽章条目有官方文件或权威口径背书。</p>
+    <div class="cards" id="negCards"></div>
+  </section>
+  <div class="empty" id="empty" hidden>
+    <p>没有符合条件的项目。</p>
+    <p class="dim">试试放宽筛选：清空能力标签、把成本调成"不限"，或换一个年龄。</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p id="disclaimer"></p>
+    <details>
+      <summary>分类"怎么挑"指南（12 篇）</summary>
+      <div id="guideList"></div>
+    </details>
+    <details>
+      <summary>数据说明与完整信源清单</summary>
+      <div id="policyList"></div>
+      <div id="sourceList"></div>
+    </details>
+    <p class="dim" id="version"></p>
+  </div>
+</footer>
+
+<button id="backTop" hidden aria-label="回到顶部">↑ 顶部</button>
+
+<script src="data.js?v=1.2.2"></script>
+<script src="app.js?v=1.2.3"></script>
+</body>
+</html>
